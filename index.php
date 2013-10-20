@@ -1,11 +1,8 @@
 <html>
 <head>
-<?php require_once("facebook.php"); ?>
 	<title>
 	Twitter profile
 	</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <div class=col-xs-container>
 <div class="navbar navbar-default navbar-fixed-top">
@@ -33,16 +30,16 @@
 	</div>
 	<input type="submit" value="submit">
 </form><br>
+
+
+
 <?php 
 require_once("facebook.php");
-$config = array();
-  $config['appId'] = '449189661827284';
-  $config['secret'] = '4f7a96ea42fbe10a2641a1d23d5ccd2b';
-  $config['fileUpload'] = false; // optional
-  $facebook = new Facebook($config);
+require("fbconfig.php");
+$facebook = new Facebook($config);
   $ret = $facebook->api('nit3ch');
   $user_id = $facebook->getUser();
-  print_r($user_id);
+  print_r($ret);
   $login_url = $facebook->getLoginUrl();
       echo 'Please <a href="' . $login_url . '">login.</a>';
 ?>
