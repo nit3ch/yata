@@ -1,13 +1,7 @@
 <?php
-require('twitteroauth-master/twitteroauth/twitteroauth.php'); // path to twitteroauth library
-$username = $_GET['username'];
-$consumerkey = 'Nt96R0dPz1uX9ePwTkZzyA';
-$consumersecret = 'hS03S5jvUxw67Ibi3Zm7XyPgxsVVBBbBFhZveNmZTp8';
-$accesstoken = '91848460-rHzZrJ0oZLniozSoMzXWAzueGytEbXUMclPK70FCm';
-$accesstokensecret = 'VCAG19gpZdDDz6GhlkEBo5NpMqrRssntPR2eTIKtoQ';
-
+include('config.php');
 $twitter = new TwitterOAuth($consumerkey, $consumersecret, $accesstoken, $accesstokensecret);
- 
+
 $tweets = $twitter->get('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' . $username . '&count=10');
 $statusupdate = "test tweet oauth";
 //$tweet = $twitter->post('statuses/update', array('status' => $statusupdate));
